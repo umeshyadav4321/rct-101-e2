@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import AddProduct from "./AddProduct";
+import Pagination from "./Pagination";
 
 const Products = () => {
   // TODO: Remove below const and instead import them from chakra
@@ -13,15 +15,19 @@ const Products = () => {
       setProd(d);
     })
   },[])
+  
 
  
   return (
-
-    <div>
-          <h1>Products</h1>
+    <>
+    <AddProduct/>
+    <h1>Products</h1>
+{/* <Wrapper> */}
+    <div style={{display:"flex"}}>
+         
       {prod.map((el)=>(
-        <div style={{display:"flex"}}>
-            <div style={{border:"1px solid red",width:"200px",height:"270px"}}>
+        // <div style={{border:"6px solid green"}}>
+            <div style={{border:"1px solid red",width:"200px",height:"270px",marginLeft:"10px",borderRadius:"5px"}}>
             <img style={{height:"120px"}} id={el.id} src={el.imageSrc} alt="" />
           <div style={{marginLeft:"50px"}}>
             <div style={{display:"flex"}}>
@@ -34,18 +40,22 @@ const Products = () => {
               </div>
           </div>
           </div>
-        </div>
+        // </div>
 
        
       ))}
     </div>
-    // <Flex>
-    //   {/*  AddProduct */}
-    //   <Grid>{/* List of Products */}
+    {/* </Wrapper> */}
+    <Flex>
+     {/*  AddProduct */}
+    <Grid>{/* List of Products */}
       
-    //   </Grid>
-    //   {/* Pagination */}
-    // </Flex>
+     </Grid>
+   {/* Pagination */}
+    <Pagination/>
+    </Flex>
+    </>
+    
   );
 };
 
